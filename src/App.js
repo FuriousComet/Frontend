@@ -1,28 +1,28 @@
-import "./App.scss";
 import React, { useState } from "react";
-import RightArrowIcon from "./assets/right-arrow.png";
+import "./App.scss";
+import RightArrowIcon from "./assets/right_arrow.png";
 import BackImage from "./assets/back.png";
-import archiveImage from "./assets/images/docker/1.png";
-import appImage from "./assets/images/docker/2.png";
-import chromeImage from "./assets/images/docker/3.png";
-import vcImage from "./assets/images/docker/4.png";
-import blenderImage from "./assets/images/docker/5.png";
-import davinciImage from "./assets/images/docker/6.png";
-import figmaImage from "./assets/icons/Figma.png";
-import gimpImage from "./assets/icons/GIMP.png";
-import audacityImage from "./assets/icons/Audacity.png";
-import braveImage from "./assets/icons/Brave.png";
-import androidImage from "./assets/icons/Android_Studio.png";
-import spotifyImage from "./assets/icons/Spotify.png";
-import discordImage from "./assets/icons/discord.png";
-import slackImage from "./assets/icons/Slack.png";
-import YT_musicImage from "./assets/icons/YouTubeMusic_Logo 1.png";
-import Atom_Image from "./assets/icons/Atom_editor_logo 1.png";
-import Firefox_Image from "./assets/icons/Firefox_logo,_2019 1.png";
-import Sublime_Image from "./assets/icons/Slack.png";
+import archiveImage from "./assets/1.png";
+import appImage from "./assets/2.png";
+import chromeImage from "./assets/3.png";
+import vcImage from "./assets/4.png";
+import blenderImage from "./assets/5.png";
+import davinciImage from "./assets/6.png";
+import figmaImage from "./assets/Figma.png";
+import gimpImage from "./assets/GIMP.png";
+import audacityImage from "./assets/Audacity.png";
+import braveImage from "./assets/Brave.png";
+import androidImage from "./assets/Android_Studio.png";
+import spotifyImage from "./assets/Spotify.png";
+import discordImage from "./assets/discord.png";
+import slackImage from "./assets/Slack.png";
+import YT_musicImage from "./assets/YouTubeMusic_Logo.png";
+import Atom_Image from "./assets/Atom_editor_logo.png";
+import Firefox_Image from "./assets/Firefox_logo.png";
+import Sublime_Image from "./assets/sublime.png";
 
-import searchImage from "./assets/images/setting/search.png";
-import profileImage from "./assets/images/setting/profile.png";
+import searchImage from "./assets/search.png";
+import profileImage from "./assets/profile.png";
 import customBackImage from "./assets/new_back.png";
 
 const imageNames = [
@@ -44,20 +44,20 @@ const rowTitles = ["Browsers", "Music", "IDE", "Photo and Video Editor"];
 const iconRows = [
   {
     icons: [chromeImage, braveImage, Firefox_Image],
-    names: ["Google Chrome", "Brave", "Firefox"]
+    names: ["Google Chrome", "Brave", "Firefox"],
   },
   {
     icons: [spotifyImage, YT_musicImage],
-    names: ["Spotify", "YT Music"]
+    names: ["Spotify", "YT Music"],
   },
   {
     icons: [vcImage, Sublime_Image, blenderImage, Atom_Image],
-    names: ["VS Code", "Submit Text", "Vim", "Atom"]
+    names: ["VS Code", "Submit Text", "Vim", "Atom"],
   },
   {
     icons: [gimpImage, davinciImage],
-    names: ["Gimp", "Davinci Resolve"]
-  }
+    names: ["Gimp", "Davinci Resolve"],
+  },
 ];
 
 // AppGrid component
@@ -81,7 +81,7 @@ const IconContainer = () => {
   return (
     <div className="icon-container">
       <div className="m_searchContainer_bar">
-        <img src={searchImage} style={{ width: "20px", height: "20px" }} />
+        <img src={searchImage} style={{ width: "20px", height: "20px" }} alt="" />
       </div>
       <div className="icons-content">
         {iconRows.map((row, rowIndex) => (
@@ -107,8 +107,8 @@ function App() {
   const [showSearchContainer, setShowSearchContainer] = useState(false);
   const [showIconContainer, setShowIconContainer] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
-  const [isCustomize, setIsCustomize ] = useState(false);
-  
+  const [isCustomize, setIsCustomize] = useState(false);
+
   const images = [
     chromeImage,
     vcImage,
@@ -126,7 +126,7 @@ function App() {
 
   const handleCustomizeClick = () => {
     console.log("Custom click!!");
-    setIsCustomize(true);
+    setIsCustomize(!isCustomize); // Toggle the value of isCustomize
   };
 
   return (
@@ -149,12 +149,13 @@ function App() {
         }}
       >
         <img
-          src={isCustomize?customBackImage:BackImage}
+          src={isCustomize ? customBackImage : BackImage}
           style={{
             width: "100%",
             height: "100%",
           }}
-        ></img>
+          alt="Background"
+        />
       </div>
       <div
         className="m_tagmenu"
@@ -165,67 +166,87 @@ function App() {
           display: "flex",
         }}
       >
-        <div className="m_tag_home" style={{cursor:"pointer"}}>HOME</div>
-        <div style={{ marginLeft: "auto", marginRight: "auto", cursor:"pointer"}}>
+        <div className="m_tag_home" style={{ cursor: "pointer" }}>
+          HOME
+        </div>
+        <div
+          style={{ marginLeft: "auto", marginRight: "auto", cursor: "pointer" }}
+        >
           +New Workspace
         </div>
       </div>
       <div className="m_dockerBar">
-        <img src={archiveImage} style={{cursor:"pointer"}}/>
-        <img src={appImage} onClick={() => setShowIconContainer(!showIconContainer)} style={{cursor:"pointer"}}/>
+        <img src={archiveImage} style={{ cursor: "pointer" }} alt=""/>
+        <img
+          src={appImage}
+          onClick={() => setShowIconContainer(!showIconContainer)}
+          style={{ cursor: "pointer" }}
+          alt=""
+        />
         {showIconContainer && <IconContainer />}
-        <img src={chromeImage} style={{cursor:"pointer"}}/>
-        <img src={vcImage} style={{cursor:"pointer"}}/>
-        <img src={blenderImage} style={{cursor:"pointer"}}/>
-        <img src={davinciImage} style={{cursor:"pointer"}}/>
+        <img src={chromeImage} style={{ cursor: "pointer" }} alt=""/>
+        <img src={vcImage} style={{ cursor: "pointer" }} alt=""/>
+        <img src={blenderImage} style={{ cursor: "pointer" }} alt=""/>
+        <img src={davinciImage} style={{ cursor: "pointer" }} alt=""/>
       </div>
       <div className="m_setting">
-        <img 
-          src={searchImage} 
-          style={{ width: "20px", height: "20px" }} 
-          onClick={() => setShowSearchContainer(!showSearchContainer)} 
+        <img
+          src={searchImage}
+          style={{ width: "20px", height: "20px" }}
+          onClick={() => setShowSearchContainer(!showSearchContainer)}
           alt="Toggle Search"
         />
         {showSearchContainer && (
           <div className="m_searchCotainer">
             {/* Add the right arrow icon */}
+            <img
+              src={RightArrowIcon}
+              style={{
+                position: "absolute",
+                right: "5px",
+                top: "50%",
+                transform: "translateY(-50%)",
+                
+              }}
+              onClick={() => {
+                if (startIndex + 16 < images.length) {
+                  // Check if there are more apps to show
+                  setStartIndex(startIndex + 16);
+                }
+              }}
+              alt=""
+            />
+
+            <div className="m_searchContainer_bar">
               <img
-                src={RightArrowIcon}
-                style={{
-                  position: "absolute",
-                  right: "5px",
-                  top: "50%",
-                  transform: "translateY(-50%)",
-                }}
-                onClick={() => {
-                  if (startIndex + 16 < images.length) {
-                    // Check if there are more apps to show
-                    setStartIndex(startIndex + 16);
-                  }
-                }}
+                src={searchImage}
+                style={{ width: "20px", height: "20px" }}
+                alt=""
               />
-
-              <div className="m_searchContainer_bar">
-                <img src={searchImage} style={{ width: "20px", height: "20px" }} />
-              </div>
-
-              {/* 4x4 AppGrid here */}
-              <AppGrid images={images} names={imageNames} startIndex={startIndex} />
             </div>
-        )}
-        <img 
-          src={profileImage} 
-          onClick={() => setShowSettings(!showSettings)} 
-          alt="Profile"
-          style={{ cursor: 'pointer' }}
-        />
 
+            {/* 4x4 AppGrid here */}
+            <AppGrid
+              images={images}
+              names={imageNames}
+              startIndex={startIndex}
+            />
+          </div>
+        )}
+        <img
+          src={profileImage}
+          onClick={() => setShowSettings(!showSettings)}
+          alt="Profile"
+          style={{ cursor: "pointer" }}
+        />
         {showSettings && (
           <div className="settings-window">
-            <div style={{cursor:"pointer"}}>Admin Panel</div>
-            <div style={{cursor:"pointer"}}>Settings </div>
-            <div onClick={handleCustomizeClick} style={{cursor:"pointer"}}>Customisation</div>
-            <div style={{cursor:"pointer"}}>Report an Issue</div>
+            <div style={{ cursor: "pointer" }}>Admin Panel</div>
+            <div style={{ cursor: "pointer" }}>Settings </div>
+            <div onClick={handleCustomizeClick} style={{ cursor: "pointer" }}>
+              Customisation
+            </div>
+            <div style={{ cursor: "pointer" }}>Report an Issue</div>
           </div>
         )}
         Thu, Sept 20 15:31
