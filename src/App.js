@@ -1,29 +1,29 @@
 import React, { useState } from "react";
 import "./App.scss";
-import RightArrowIcon from "./assets/right_arrow.png";
-import BackImage from "./assets/back.png";
-import archiveImage from "./assets/1.png";
-import appImage from "./assets/2.png";
-import chromeImage from "./assets/3.png";
-import vcImage from "./assets/4.png";
-import blenderImage from "./assets/5.png";
-import davinciImage from "./assets/6.png";
-import figmaImage from "./assets/Figma.png";
-import gimpImage from "./assets/GIMP.png";
-import audacityImage from "./assets/Audacity.png";
-import braveImage from "./assets/Brave.png";
-import androidImage from "./assets/Android_Studio.png";
-import spotifyImage from "./assets/Spotify.png";
-import discordImage from "./assets/discord.png";
-import slackImage from "./assets/Slack.png";
-import YT_musicImage from "./assets/YouTubeMusic_Logo.png";
-import Atom_Image from "./assets/Atom_editor_logo.png";
-import Firefox_Image from "./assets/Firefox_logo.png";
-import Sublime_Image from "./assets/sublime.png";
+const RightArrowIcon = process.env.PUBLIC_URL + "/assets/right_arrow.png";
+const BackImage = process.env.PUBLIC_URL + "./assets/back.png";
+const archiveImage = process.env.PUBLIC_URL + "./assets/1.png";
+const appImage = process.env.PUBLIC_URL + "./assets/2.png";
+const chromeImage = process.env.PUBLIC_URL + "./assets/3.png";
+const vcImage = process.env.PUBLIC_URL + "./assets/6.png";
+const blenderImage = process.env.PUBLIC_URL + "./assets/5.png";
+const davinciImage = process.env.PUBLIC_URL + "./assets/4.png";
+const figmaImage = process.env.PUBLIC_URL + "./assets/Figma.png";
+const gimpImage = process.env.PUBLIC_URL + "./assets/GIMP.png";
+const audacityImage = process.env.PUBLIC_URL + "./assets/Audacity.png";
+const braveImage = process.env.PUBLIC_URL + "./assets/Brave.png";
+const androidImage = process.env.PUBLIC_URL + "./assets/Android_Studio.png";
+const spotifyImage = process.env.PUBLIC_URL + "./assets/Spotify.png";
+const discordImage = process.env.PUBLIC_URL + "./assets/discord.png";
+const slackImage = process.env.PUBLIC_URL + "./assets/Slack.png";
+const YT_musicImage = process.env.PUBLIC_URL + "./assets/YouTubeMusic_Logo.png";
+const Atom_Image = process.env.PUBLIC_URL + "./assets/Atom_editor_logo.png";
+const Firefox_Image = process.env.PUBLIC_URL + "./assets/Firefox_logo.png";
+const Sublime_Image = process.env.PUBLIC_URL + "./assets/sublime.png";
 
-import searchImage from "./assets/search.png";
-import profileImage from "./assets/profile.png";
-import customBackImage from "./assets/new_back.png";
+const searchImage = process.env.PUBLIC_URL + "./assets/search.png";
+const profileImage = process.env.PUBLIC_URL + "./assets/profile.png";
+const customBackImage = process.env.PUBLIC_URL + "./assets/new_back.png";
 
 const imageNames = [
   "Google Chrome",
@@ -127,7 +127,7 @@ function App() {
   const handleCustomizeClick = () => {
     console.log("Custom click!!");
     setIsCustomize(!isCustomize); // Toggle the value of isCustomize
-  };
+  };  
 
   return (
     <div
@@ -176,18 +176,18 @@ function App() {
         </div>
       </div>
       <div className="m_dockerBar">
-        <img src={archiveImage} style={{ cursor: "pointer" }} alt=""/>
+        <img src={archiveImage} style={{ cursor: "pointer" }} alt="" />
         <img
           src={appImage}
           onClick={() => setShowIconContainer(!showIconContainer)}
           style={{ cursor: "pointer" }}
-          alt=""
+          alt="" 
         />
         {showIconContainer && <IconContainer />}
-        <img src={chromeImage} style={{ cursor: "pointer" }} alt=""/>
-        <img src={vcImage} style={{ cursor: "pointer" }} alt=""/>
-        <img src={blenderImage} style={{ cursor: "pointer" }} alt=""/>
-        <img src={davinciImage} style={{ cursor: "pointer" }} alt=""/>
+        <img src={chromeImage} style={{ cursor: "pointer" }} alt="" />
+        <img src={vcImage} style={{ cursor: "pointer" }} alt="" />
+        <img src={blenderImage} style={{ cursor: "pointer" }} alt="" />
+        <img src={davinciImage} style={{ cursor: "pointer" }} alt="" />
       </div>
       <div className="m_setting">
         <img
@@ -206,7 +206,6 @@ function App() {
                 right: "5px",
                 top: "50%",
                 transform: "translateY(-50%)",
-                
               }}
               onClick={() => {
                 if (startIndex + 16 < images.length) {
